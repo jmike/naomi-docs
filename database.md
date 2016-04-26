@@ -15,7 +15,7 @@ The Database class provides handy methods to connect/disconnect from a database,
 
 ## How to create a database?
 
-Creating a database instance is achieved through the [naomi#create()](naomi.md#create) method, e.g.
+Database instances can be created using the [naomi#create()](naomi.md#create) method, e.g.
 
 ```javascript
 var naomi = require('naomi');
