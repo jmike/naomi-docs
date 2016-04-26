@@ -10,6 +10,7 @@
   * [insert(records, [options], [callback])](#insert)
   * [upsert(records, [options], [callback])](#upsert)
   * [update(selector, payload, [options], [callback])](#update)
+  * [reverseEngineer([callback])](#reverseEngineer)
 
 ## Methods
 
@@ -222,6 +223,30 @@ Returns a [bluebird](http://bluebirdjs.com/docs/api-reference.html) promise that
 collection.update({ age: 20 }, { id: 2 })
   .then(() => {
     console.log(`Employee #2 has been successfully updated`);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+```
+
+### <a name="reverseEngineer" href="reverseEngineer">#</a>reverseEngineer([callback]) -> Promise
+
+Updates the collection's schema using meta-data retrieved from the database.
+
+##### Arguments
+
+4. `callback` _(Function\<Error\>)_ callback function (optional)
+
+##### Returns
+
+Returns a [bluebird](http://bluebirdjs.com/docs/api-reference.html) promise that will resolve when schema has been successfully updated.
+
+##### Example
+
+```javascript
+collection.reverseEngineer()
+  .then(() => {
+    console.log(`Updated schema from database meta-data`);
   })
   .catch((err) => {
     console.error(err);
