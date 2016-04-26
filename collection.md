@@ -6,6 +6,7 @@
   * [find([selector], [options], [callback])](#find)
   * [findOne([selector], [options], [callback])](#findOne)
   * [count([selector], [options], [callback])](#count)
+  * [remove([selector], [options], [callback])](#remove)
 
 ## Methods
 
@@ -99,6 +100,34 @@ Returns a [bluebird](http://bluebirdjs.com/docs/api-reference.html) promise reso
 db.count({ age: { $gte: 18 } })
   .then((n) => {
     console.log(`Found ${n} record(s)`);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+```
+
+### <a name="remove" href="remove">#</a>remove([selector], [options], [callback]) -> Promise
+
+Removes the designated records from the collection.
+
+##### Arguments
+
+1. `selector` _(boolean, number, string, Date, Object, Array\<Object\>)_ a naomi selection expression (optional)
+2. `options` _(Object)_ query options (optional)
+  * `options.orderby` _(string, Object, Array\<string, Object\>)_ a naomi orderby expression (optional)
+  * `options.limit` _(number)_ maximum number of records to retrieve (optional)
+3. `callback` _(Function\<Error\>)_ callback function (optional)
+
+##### Returns
+
+Returns a [bluebird](http://bluebirdjs.com/docs/api-reference.html) promise that will resolve when records are successfully removed.
+
+##### Example
+
+```javascript
+db.remove({ age: { $lt: 18 } })
+  .then(() => {
+    console.log(`Removed employees under the age of 18`);
   })
   .catch((err) => {
     console.error(err);
