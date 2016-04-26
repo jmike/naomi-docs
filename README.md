@@ -5,7 +5,7 @@ A simple ORM for Node.js that takes care of the repetitive CRUD tasks, while pro
 #### Features
 
 * Accepts mongo-like query language to perform repretitive CRUD (+ count) tasks;
-* Provides a handy interface for custom SQL queries;
+* Provides a handy interface for native queries, e.g. SQL;
 * Leverages existing database meta-data instead of redefining the db schema in the application layer;
 * Exposes promise and callback APIs.
 
