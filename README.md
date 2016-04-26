@@ -23,6 +23,13 @@ $ npm install naomi
 
 1. [naomi-mysql](https://github.com/jmike/naomi-mysql)
 
+## API Docs
+
+* [Naomi singleton](#naomi.md)
+* [Database](#database.md)
+* [Schema](#schema.md)
+* [Collection](#collection.md)
+
 ## Philosophy
 
 Databases, besides data, contain meta-data; stuff like...
