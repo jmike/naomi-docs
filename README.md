@@ -45,9 +45,9 @@ These meta-data can be extracted from the database and are sufficient for genera
 Naomi is different in 2 ways:
 
 1. It provides methods to run repetitive CRUD (+ count) operations using a familiar mongo-like query language. When that's not enough it allows you run native queries directly to the database.
-2. It exposes simple methods to pull meta-data from the database, thus eliminating the need to recreate the information in the application layer in putting you (not the ORM) in charge of your schema.
+2. It exposes simple methods to extract meta-data from the database, thus eliminating the need to recreate the information in the application layer and putting you (not the ORM) in charge of your schema.
 
-With Naomi, you are allowed to create the database using a tool of your choice, e.g. [MySQL Workbench](http://www.mysql.com/products/workbench/) or [pgAdmin](http://www.pgadmin.org/) - a tool you already know. While this approach may seem intriguing to new developers, it is in fact the natural way of thinking for experienced engineers. Creating a database requires creativity and imagination that machines lack. It is a task made for humans.
+With Naomi you have the freedom to create the database using a tool of your choice, e.g. [MySQL Workbench](http://www.mysql.com/products/workbench/) or [pgAdmin](http://www.pgadmin.org/). While this approach may seem intriguing to new developers, it is in fact the natural way of thinking for experienced engineers. Creating a database requires creativity and imagination that machines lack. It is a task made for humans.
 
 ## Acknowledgements
 
