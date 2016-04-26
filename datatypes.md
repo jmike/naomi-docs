@@ -19,10 +19,20 @@ A detailed description of Naomi datatypes and their related properties.
   * [date.max(value)](#datemax)
   * [date.min(value)](#datemin)
   * [date.nullable(nullable)](#datenullable)
+* [string](#string)
+  * [string.default(value)](#stringdefault)
+  * [string.length(limit)](#stringlength)
+  * [string.lowercase(lowercase)](#stringlowercase)
+  * [string.maxLength(limit)](#stringmaxlength)
+  * [string.minLength(limit)](#stringminlength)
+  * [string.nullable(nullable)](#stringnullable)
+  * [string.regex(regex)](#stringregex)
+  * [string.trim(trim)](#stringtrim)
+  * [string.uppercase(uppercase)](#stringuppercase)
 
 ## binary
 
-The binary datatype matches [Buffer](https://nodejs.org/api/buffer.html) and string types (the latter being converted to Buffer internally).
+The _binary_ datatype matches [Buffer](https://nodejs.org/api/buffer.html) and string types (the latter being converted to Buffer internally).
 
 ### <a name="binarydefault" href="binarydefault">#</a>binary.default(value)
 
@@ -115,7 +125,7 @@ binary.nullable(true); // allows nil values
 
 ## boolean
 
-The boolean datatype matches boolean types (as well as the strings 'true', 'false', 'yes', 'no', 'on' or 'off').
+The _boolean_ datatype matches boolean types (as well as the strings 'true', 'false', 'yes', 'no', 'on' or 'off').
 
 ### <a name="booleannullable" href="booleannullable">#</a>boolean.nullable(nullable)
 
@@ -134,7 +144,7 @@ boolean.nullable(true); // allows nil values
 
 ## date
 
-The date datatype matches Date types, JavaScript date string and number of milliseconds.
+The _date_ datatype matches JavaScript Date types, date strings and number of milliseconds.
 
 ### <a name="datedefault" href="datedefault">#</a>date.default(value)
 
@@ -142,7 +152,7 @@ Sets a default value for this datatype.
 
 ##### Parameters
 
-1. `default` _(string, Date, Function)_ the default value.
+1. `value` _(string, Date, Function)_ the default value.
 
 ##### Example
 
@@ -220,4 +230,139 @@ Marks the datatype as optional, which allows the `undefined` and `null` values.
 
 ```javascript
 date.nullable(true); // accepts nil values
+```
+
+
+## string
+
+The _string_ datatype matches string types.
+
+### <a name="stringdefault" href="stringdefault">#</a>string.default(value)
+
+Sets a default value for this datatype.
+
+##### Parameters
+
+1. `value` _(string, Function)_ the default value.
+
+##### Example
+
+```javascript
+string.default('abc');
+```
+
+##### Notes
+
+You may also specify a function to return the default value.
+
+### <a name="stringlength" href="stringlength">#</a>string.length(limit)
+
+Specifies the exact string length required.
+
+##### Parameters
+
+1. `limit` _(number)_ the exact string length required.
+
+##### Example
+
+```javascript
+string.length(3);
+```
+
+### <a name="stringlowercase" href="stringlowercase">#</a>string.lowercase(lowercase)
+
+Requires the string value to be all lowercase.
+
+##### Parameters
+
+1. `lowercase` _(boolean)_ whether the string value is all lowercase.
+
+##### Example
+
+```javascript
+string.lowercase(true);
+```
+
+### <a name="stringuppercase" href="stringuppercase">#</a>string.uppercase(uppercase)
+
+Requires the string value to be all uppercase.
+
+##### Parameters
+
+1. `uppercase` _(boolean)_ whether the string value is all uppercase.
+
+##### Example
+
+```javascript
+string.uppercase(true);
+```
+
+### <a name="stringmaxlength" href="stringmaxlength">#</a>string.maxLength(limit)
+
+Specifies the maximum number of string characters allowed.
+
+##### Parameters
+
+1. `limit` _(number)_ the maximum number of string characters allowed.
+
+##### Example
+
+```javascript
+string.maxLength(5);
+```
+
+### <a name="stringminlength" href="stringminlength">#</a>string.minLength(limit)
+
+Specifies the minimum number of string characters allowed.
+
+##### Parameters
+
+1. `limit` _(number)_ the minimum number of string characters allowed.
+
+##### Example
+
+```javascript
+string.minLength(1);
+```
+
+### <a name="stringnullable" href="stringnullable">#</a>string.nullable(nullable)
+
+Marks the datatype as optional, which allows the `undefined` and `null` values.
+
+##### Parameters
+
+1. `nullable` _(boolean)_ whether the datatype is nullable.
+
+##### Example
+
+```javascript
+string.nullable(true); // accepts nil values
+```
+
+### <a name="stringregex" href="stringregex">#</a>string.regex(regex)
+
+Specifies a regular expression rule to validate values against.
+
+##### Parameters
+
+1. `regex` _(string, RegExp)_ a regular expression rule.
+
+##### Example
+
+```javascript
+string.regex(/^[abc]+$/);
+```
+
+### <a name="stringtrim" href="stringtrim">#</a>string.trim(trim)
+
+Requires the string value to contain no whitespace before or after.
+
+##### Parameters
+
+1. `trim` _(boolean)_ whether the value allows whitespace before or after.
+
+##### Example
+
+```javascript
+string.trim(true);
 ```
