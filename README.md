@@ -7,7 +7,7 @@ A simple ORM for Node.js that takes care of the repetitive CRUD tasks, while pro
 * Accepts mongo-like query language to perform repretitive CRUD (+ count) tasks;
 * Provides a handy interface for custom SQL queries;
 * Leverages existing database meta-data instead of redefining the db schema in the application layer;
-* Exposes promise and callback APIs using bluebird;
+* Exposes promise and callback APIs;
 * Is battle-tested under heavy load in production environments.
 
 ## Installation
