@@ -32,12 +32,7 @@ $ npm install naomi
 
 ## Philosophy
 
-Databases, besides data, contain meta-data; stuff like...
-
-* Keys + datatypes
-* Indices
-* Constraints
-* Relations
+Databases, besides data, contain meta-data; stuff like `keys`, `datatypes`, `indices`, `constraints` and `relations`.
 
 These meta-data can be extracted from the database and are sufficient for generating basic validation rules and application structure. Yet most ORM tools tend to ignore meta-data living in the database and replicate that information in the application layer, which results to:
 
@@ -47,21 +42,12 @@ These meta-data can be extracted from the database and are sufficient for genera
 
 ##### How is Naomi different?
 
-Naomi works the boths ways:
+Naomi is different in 2 ways:
 
-###### Use case A
+1. It provides methods to run repetitive CRUD (+ count) operations using a familiar mongo-like query language. When that's not enough it allows you run native queries directly to the database.
+2. It exposes simple methods to pull meta-data from the database, thus eliminating the need to recreate the information in the application layer in putting you (not the ORM) in charge of your schema.
 
-1. You first create the database using a tool of your choice, e.g. [MySQL Workbench](http://www.mysql.com/products/workbench/) or [pgAdmin](http://www.pgadmin.org/) - a tool you already know;
-2. You call a simple method (namely [Collection#reverseEngineer()](collection.md#reverseEngineer)) to pull meta-information to the application layer.
-
-While this approach may seem intriguing to new developers, it is in fact the natural way of thinking for experienced engineers. Creating a database requires creativity and imagination that machines lack. It is a task made for humans.
-
-###### Use case B
-
-1. You ;
-2. You call a few simple methods to extract meta-information to the application layer.
-
-In any case, naomi takes care of the SQL code by automating repetitive data queries. And if you need some custom logic you can always write it yourself.
+With Naomi, you are allowed to create the database using a tool of your choice, e.g. [MySQL Workbench](http://www.mysql.com/products/workbench/) or [pgAdmin](http://www.pgadmin.org/) - a tool you already know. While this approach may seem intriguing to new developers, it is in fact the natural way of thinking for experienced engineers. Creating a database requires creativity and imagination that machines lack. It is a task made for humans.
 
 ## Acknowledgements
 
