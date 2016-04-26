@@ -7,6 +7,7 @@
   * [findOne([selector], [options], [callback])](#findOne)
   * [count([selector], [options], [callback])](#count)
   * [remove([selector], [options], [callback])](#remove)
+  * [insert(records, [options], [callback])](#insert)
 
 ## Methods
 
@@ -120,7 +121,7 @@ Removes the designated records from the collection.
 
 ##### Returns
 
-Returns a [bluebird](http://bluebirdjs.com/docs/api-reference.html) promise that will resolve when records are successfully removed.
+Returns a [bluebird](http://bluebirdjs.com/docs/api-reference.html) promise that will resolve when records have been successfully removed.
 
 ##### Example
 
@@ -128,6 +129,40 @@ Returns a [bluebird](http://bluebirdjs.com/docs/api-reference.html) promise that
 db.remove({ age: { $lt: 18 } })
   .then(() => {
     console.log(`Removed employees under the age of 18`);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+```
+
+### <a name="insert" href="insert">#</a>insert(records, [options], [callback]) -> Promise
+
+Inserts the supplied record(s) to the collection.
+
+##### Arguments
+
+1. `records` _(Object, Array\<Object\>)_ record(s) to insert to the collection (required)
+2. `options` _(Object)_ query options (optional)
+3. `callback` _(Function\<Error\, (Object, Array\<Object\>)>)_ callback function (optional)
+
+###### MySQL-specific arguments
+
+* `options.ignore` _(boolean)_ if true MySQL will perform an INSERT IGNORE query (optional, defaults to `false`)
+
+##### Returns
+
+Returns a [bluebird](http://bluebirdjs.com/docs/api-reference.html) promise resolving to the primary key of the records inserted.
+
+##### Example
+
+```javascript
+db.insert([
+  { firstname: 'Mr.', lastname: 'Doobs', age: 18 },
+  { firstname: 'George', lastname: 'Fudge', age: 19 },
+  { firstname: 'Jack', lastname: 'White', age: 20 }
+ ])
+  .then((pk) => {
+    // do something with pk array
   })
   .catch((err) => {
     console.error(err);
