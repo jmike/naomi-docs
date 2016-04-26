@@ -32,6 +32,15 @@ A detailed description of Naomi datatypes and their related properties.
   * [enum.default(value)](#enumdefault)
   * [enum.nullable(nullable)](#enumnullable)
   * [enum.values(values)](#enumvalues)
+* [float](#float)
+  * [float.default(value)](#floatdefault)
+  * [float.max(limit)](#floatmax)
+  * [float.min(limit)](#floatmin)
+  * [float.negative(negative)](#floatnegative)
+  * [float.nullable(nullable)](#floatnullable)
+  * [float.positive(positive)](#floatpositive)
+  * [float.precision(precision)](#floatprecision)
+  * [float.scale(scale)](#floatscale)
 * [string](#string)
   * [string.default(value)](#stringdefault)
   * [string.length(limit)](#stringlength)
@@ -369,7 +378,7 @@ email.trim(true);
 
 ## enum
 
-The _enum_ datatype matches a set of specific string values.
+The _enum_ datatype matches a set of predefined string values.
 
 ### <a name="enumvalues" href="enumvalues">#</a>enum.values(values)
 
@@ -415,6 +424,131 @@ Marks the datatype as optional, which allows the `undefined` and `null` values.
 
 ```javascript
 enum.nullable(true);
+```
+
+
+## float
+
+The _float_ datatype matches float numbers.
+
+### <a name="floatdefault" href="floatdefault">#</a>float.default(value)
+
+Sets a default value if the original value is undefined.
+
+##### Parameters
+
+1. `default` _(number, Function)_ the default value.
+
+##### Example
+
+```javascript
+float.default(12.34);
+```
+
+##### Notes
+
+You may also specify a function to return the default value.
+
+```javascript
+float.default(Math.PI);
+```
+
+### <a name="floatmax" href="floatmax">#</a>float.max(limit)
+
+Specifies the maximum allowed value.
+
+##### Parameters
+
+1. `limit` _(number)_ the maximum value allowed.
+
+##### Example
+
+```javascript
+float.max(999.99);
+```
+
+### <a name="floatmin" href="floatmin">#</a>float.min(limit)
+
+Specifies the minimum allowed value.
+
+##### Parameters
+
+1. `limit` _(number)_ the minimum value allowed.
+
+##### Example
+
+```javascript
+float.min(-1.1);
+```
+
+### <a name="floatnegative" href="floatnegative">#</a>float.negative(negative)
+
+If set to true requires value to be negative.
+
+##### Parameters
+
+1. `negative` _(boolean)_ whether the value is negative.
+
+##### Example
+
+```javascript
+float.negative(true);
+```
+
+### <a name="floatnullable" href="floatnullable">#</a>float.nullable(nullable)
+
+Marks the datatype as optional, which allows the `undefined` and `null` values.
+
+##### Parameters
+
+1. `nullable` _(boolean)_ whether the datatype is nullable.
+
+##### Example
+
+```javascript
+float.nullable(true);
+```
+
+### <a name="floatpositive" href="floatpositive">#</a>float.positive(positive)
+
+If set to true requires value to be positive.
+
+##### Parameters
+
+1. `positive` _(boolean)_ whether the value is positive.
+
+##### Example
+
+```javascript
+float.positive(true);
+```
+
+### <a name="floatprecision" href="floatprecision">#</a>float.precision(precision)
+
+Specifies the number of total digits allowed in value, including decimals.
+
+##### Parameters
+
+1. `precision` _(number)_ total digits allowed in value.
+
+##### Example
+
+```javascript
+float.precision(5);
+```
+
+### <a name="floatscale" href="floatscale">#</a>float.scale(scale)
+
+Specifies the number of decimal digits allowed in value.
+
+##### Parameters
+
+1. `precision` _(number)_ number of decimal digits allowed in value.
+
+##### Example
+
+```javascript
+float.scale(2);
 ```
 
 
