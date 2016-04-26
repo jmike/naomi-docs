@@ -19,6 +19,15 @@ A detailed description of Naomi datatypes and their related properties.
   * [date.max(value)](#datemax)
   * [date.min(value)](#datemin)
   * [date.nullable(nullable)](#datenullable)
+* [email](#email)
+  * [email.default(value)](#emaildefault)
+  * [email.length(limit)](#emaillength)
+  * [email.lowercase(lowercase)](#emaillowercase)
+  * [email.maxLength(limit)](#emailmaxlength)
+  * [email.minLength(limit)](#emailminlength)
+  * [email.nullable(nullable)](#emailnullable)
+  * [email.trim(trim)](#emailtrim)
+  * [email.uppercase(uppercase)](#emailuppercase)
 * [string](#string)
   * [string.default(value)](#stringdefault)
   * [string.length(limit)](#stringlength)
@@ -230,6 +239,127 @@ Marks the datatype as optional, which allows the `undefined` and `null` values.
 
 ```javascript
 date.nullable(true); // accepts nil values
+```
+
+
+## email
+
+The _email_ datatype matches email types.
+
+### <a name="emaildefault" href="emaildefault">#</a>email.default(value)
+
+Sets a default value for this datatype.
+
+##### Parameters
+
+1. `value` _(email, Function)_ the default value.
+
+##### Example
+
+```javascript
+email.default('abc');
+```
+
+##### Notes
+
+You may also specify a function to return the default value.
+
+### <a name="emaillength" href="emaillength">#</a>email.length(limit)
+
+Specifies the exact email length required.
+
+##### Parameters
+
+1. `limit` _(number)_ the exact email length required.
+
+##### Example
+
+```javascript
+email.length(3);
+```
+
+### <a name="emaillowercase" href="emaillowercase">#</a>email.lowercase(lowercase)
+
+Requires the email value to be all lowercase.
+
+##### Parameters
+
+1. `lowercase` _(boolean)_ whether the email value is all lowercase.
+
+##### Example
+
+```javascript
+email.lowercase(true);
+```
+
+### <a name="emailuppercase" href="emailuppercase">#</a>email.uppercase(uppercase)
+
+Requires the email value to be all uppercase.
+
+##### Parameters
+
+1. `uppercase` _(boolean)_ whether the email value is all uppercase.
+
+##### Example
+
+```javascript
+email.uppercase(true);
+```
+
+### <a name="emailmaxlength" href="emailmaxlength">#</a>email.maxLength(limit)
+
+Specifies the maximum number of email characters allowed.
+
+##### Parameters
+
+1. `limit` _(number)_ the maximum number of email characters allowed.
+
+##### Example
+
+```javascript
+email.maxLength(5);
+```
+
+### <a name="emailminlength" href="emailminlength">#</a>email.minLength(limit)
+
+Specifies the minimum number of email characters allowed.
+
+##### Parameters
+
+1. `limit` _(number)_ the minimum number of email characters allowed.
+
+##### Example
+
+```javascript
+email.minLength(1);
+```
+
+### <a name="emailnullable" href="emailnullable">#</a>email.nullable(nullable)
+
+Marks the datatype as optional, which allows the `undefined` and `null` values.
+
+##### Parameters
+
+1. `nullable` _(boolean)_ whether the datatype is nullable.
+
+##### Example
+
+```javascript
+email.nullable(true); // accepts nil values
+```
+
+### <a name="emailtrim" href="emailtrim">#</a>email.trim(trim)
+
+Requires the email value to contain no whitespace before or after.
+
+##### Parameters
+
+1. `trim` _(boolean)_ whether the value allows whitespace before or after.
+
+##### Example
+
+```javascript
+email.trim(true);
 ```
 
 
