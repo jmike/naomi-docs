@@ -1,20 +1,10 @@
 # Naomi singleton
 
-## Table of Contents
-
-* [Introduction](#introduction)
-* [Methods](#methods)
-  * [register(identifier, engine)](#register)
-  * [create(identifier, [connectionProperties])](#create)
-
-## Introduction
-
-Naomi is a singleton. It's what you get when you load "naomi", e.g.
+Naomi itself is a singleton. It's what you get when you load "naomi" into Node.js, i.e.
 
 ```javascript
 var naomi = require('naomi');
 ```
-
 Naomi is extensible. It allows registering external _database engines_ to handle different database types, e.g.
 
 ```javascript
@@ -23,7 +13,6 @@ var mysql = require('naomi-mysql');
 
 naomi.register('mysql', mysql);
 ```
-
 Once you have a database engine registered, you may use it to create a database instance, e.g.
 
 ```javascript
@@ -31,6 +20,12 @@ var db = naomi.create('mysql', {
   // connection properties
 });
 ```
+
+## Table of Contents
+
+* [Methods](#methods)
+  * [register(identifier, engine)](#register)
+  * [create(identifier, [connectionProperties])](#create)
 
 ## Methods
 
@@ -65,6 +60,15 @@ Creates and returns a new [Database](database.md) instance of the designated eng
 
 1. `identifier` _(string)_ database engine identifier, e.g. "mysql", "postgres".
 2. `connectionProperties` _(Object)_ connection properties specific to the database engine (optional).
+
+###### MySQL-specific arguments
+
+* `connectionProperties.database` _(string)_ the name of the database schema
+* `connectionProperties.host` _(string)_ the hostname of the database server (optional, defaults to "localhost")
+* `connectionProperties.port` _(number)_ the port of the database server (optional, defaults to 3306)
+* `connectionProperties.user` _(string)_ the user to access the database (optional, defaults to "root")
+* `connectionProperties.password` _(string)_ ] the password to access the database (optional, defaults to "" - empty string)
+* `connectionProperties.connectionLimit` _(number)_ maximum number of connections to maintain in the internal pool (optional, defaults to 10)
 
 ##### Returns
 
