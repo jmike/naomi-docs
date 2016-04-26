@@ -20,7 +20,7 @@ The Collection class provides sensible methods to manage data in a collection.
 
 ## How to create a collection?
 
-Collection instances should always be created using the [Database#collection()](database.md#collection) method, e.g.
+Collection instances can be created using the [Database#collection()](database.md#collection) method, e.g.
 
 ```javascript
 var naomi = require('naomi');
