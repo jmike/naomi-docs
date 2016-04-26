@@ -187,7 +187,7 @@ Returns a [bluebird](http://bluebirdjs.com/docs/api-reference.html) promise reso
 ##### Example
 
 ```javascript
-db.insert([
+db.upsert([
   { firstname: 'Mr.', lastname: 'Doobs', age: 19 }
  ])
   .then((pk) => {
