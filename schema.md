@@ -25,7 +25,7 @@ The Schema class holds information on a collection's keys and indices. It can be
 
 ## How to create a schema?
 
-Schema instances should always be created using the [Database#schema()](database.md#collection) method, e.g.
+Schema instances can be created using the [Database#schema()](database.md#collection) method, e.g.
 
 ```javascript
 var naomi = require('naomi');
