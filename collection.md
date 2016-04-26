@@ -4,6 +4,7 @@
 
 * [Methods](#methods)
   * [find([selector], [options], [callback])](#find)
+  * [findStream([selector], [options])](#findStream)
   * [findOne([selector], [options], [callback])](#findOne)
   * [count([selector], [options], [callback])](#count)
   * [remove([selector], [options], [callback])](#remove)
@@ -47,6 +48,30 @@ collection.find({ age: { $gte: 18 } })
 ##### Notes
 
 Method will return an empty array if records are not found in the collection.
+
+### <a name="findStream" href="findStream">#</a>findStream([selector], [options]) -> [ReadStream](https://nodejs.org/dist/latest-v5.x/docs/api/fs.html#fs_class_fs_readstream)
+
+Retrieves the designated records from the collection as a Readable Stream.
+
+##### Arguments
+
+1. `selector` _(boolean, number, string, Date, Object, Array\<Object\>)_ a naomi selection expression (optional)
+2. `options` _(Object)_ query options (optional)
+  * `options.projection` _(Object)_ a naomi projection expression (optional)
+  * `options.orderby` _(string, Object, Array\<string, Object\>)_ a naomi orderby expression (optional)
+  * `options.limit` _(number)_ maximum number of records to retrieve (optional)
+  * `options.offset` _(number)_ number of records to skip (optional)
+
+##### Returns
+
+Returns a [ReadStream](https://nodejs.org/dist/latest-v5.x/docs/api/fs.html#fs_class_fs_readstream)
+
+##### Example
+
+```javascript
+var rs = collection.findStream({ age: { $gte: 18 } })
+// pipe rs into other stream, etc.
+```
 
 ### <a name="findOne" href="findOne">#</a>findOne([selector], [options], [callback]) -> Promise
 
