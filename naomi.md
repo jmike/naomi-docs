@@ -7,7 +7,7 @@
 
 ## Introduction
 
-Naomi is a singleton. It's used as the entry point of the "naomi" module, e.g.
+Naomi is a singleton. It's what you get when you load "naomi", e.g.
 
 ```javascript
 var naomi = require('naomi');
@@ -32,7 +32,7 @@ var db = naomi.create('mysql', {
 
 ## Methods
 
-### <a name="register" href="register">#</a>register(identifier, engine) -> void
+### <a name="register" href="register">#</a>register(identifier, engine)
 
 Registers the supplied database engine under the designated identifier.
 
@@ -55,7 +55,7 @@ naomi.register('foobar', mysql);
 
 The engine id is merely a string; you can call it whatever you want, e.g. "foobar" or "quux". It makes more sense, however, to name it according to the underlying database engine, e.g. "mysql" for MySQL.
 
-### <a name="create" href="create">#</a>create(identifier, [connectionProperties]) -> [[Database]]
+### <a name="create" href="create">#</a>create(identifier, [connectionProperties]) -> [Database](database.md)
 
 Creates and returns a new [[Database]] instance of the designated engine.
 
