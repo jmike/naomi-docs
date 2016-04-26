@@ -1,8 +1,12 @@
 # Collection
 
+As far as Naomi is concerned, a "collection" is a set of commonly structured records that exist in a database, e.g. a MySQL table, a Mongo collection or an ElasticSearch type.
+
+The Collection class provides sensible methods to manage data in a collection.
+
 ## Table of Contents
 
-* [Intro](#intro)
+* [Creating a Collection instance](#creating-a-collection-instance)
 * [Methods](#methods)
   * [find([selector], [options], [callback])](#find)
   * [findStream([selector], [options])](#findStream)
@@ -14,13 +18,7 @@
   * [update(selector, payload, [options], [callback])](#update)
   * [reverseEngineer([callback])](#reverseEngineer)
 
-## Intro
-
-As far as Naomi is concerned, a "collection" is a set of commonly structured records that exist in a database, e.g. a MySQL table, a Mongo collection or an ElasticSearch type.
-
-The Collection class provides sensible methods to manage data in a collection.
-
-### How to create a Collection instance?
+## Creating a Collection instance
 
 Collection instances should always be created using the [Database#collection()](database.md#collection) method, e.g.
 
