@@ -5,6 +5,7 @@
 * [Methods](#methods)
   * [connect([callback])](#connect)
   * [disconnect([callback])](#disconnect)
+  * [run(query, [options], [callback])](#run)
   * [schema(definition)](#schema)
   * [collection(name, [schema])](#collection)
 
@@ -52,6 +53,40 @@ Returns a [bluebird](http://bluebirdjs.com/docs/api-reference.html) promise.
 db.disconnect()
   .then(() => {
     console.log('Disconnected from db');
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+```
+
+### <a name="run" href="run">#</a>run(query, [options], [callback]) -> Promise
+
+Runs the given native query.
+
+##### Arguments
+
+1. `query` _(Object)_ native query object (required).
+2. `options` _(Object)_ query options (optional).
+3. `callback` _(Function<Error, (Object, Array\<Object\>)>)_ callback function (optional).
+
+###### MySQL-specific arguments
+
+* `query.sql` _(string)_ a parameterized SQL statement (required).
+* `query.params` _(Array)_ parameter values (optional, defaults to `[]`).
+
+##### Returns
+
+Returns a [bluebird](http://bluebirdjs.com/docs/api-reference.html) promise resolving to the query results.
+
+##### MySQL Example
+
+```javascript
+db.run({
+  sql: 'SELECT * FROM `employees` WHERE id = ? LIMIT 1;',
+  params: [7]
+})
+  .then((results) => {
+    // do something with results
   })
   .catch((err) => {
     console.error(err);
