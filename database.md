@@ -1,7 +1,10 @@
-# Database class
+# Database
+
+The Database class provides handy methods to connect/disconnect from a database, execute native queries and create schemas and collections. It maintains a collection pool internally to optimize performance and allow concurrent queries.
 
 ## Table of Contents
 
+* [How to create a database](#how-to-create-a-database)
 * [Methods](#methods)
   * [connect([callback])](#connect)
   * [disconnect([callback])](#disconnect)
@@ -9,6 +12,25 @@
   * [query(query, [options], [callback])](#query)
   * [schema(definition)](#schema)
   * [collection(name, [schema])](#collection)
+
+## How to create a database?
+
+Creating a database instance is achieved through the [naomi#create()](naomi.md#create) method, e.g.
+
+```javascript
+var naomi = require('naomi');
+var mysql = require('naomi-mysql');
+
+naomi.register('mysql', mysql);
+
+var db = naomi.create('mysql', {
+  host: 'localhost',
+  port: 3306,
+  user: 'root',
+  password: 'xxxxxxxx',
+  database: 'my_schema'
+});
+```
 
 ## Methods
 
