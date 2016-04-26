@@ -25,10 +25,10 @@ $ npm install naomi
 
 ## API Docs
 
-* [Naomi singleton](#naomi.md)
-* [Database](#database.md)
-* [Schema](#schema.md)
-* [Collection](#collection.md)
+* [Naomi singleton](naomi.md)
+* [Database](database.md)
+* [Schema](schema.md)
+* [Collection](collection.md)
 
 ## Philosophy
 
