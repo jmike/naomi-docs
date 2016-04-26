@@ -118,7 +118,7 @@ db.run({
 
 ### <a name="query" href="query">#</a>query(query, [options], [callback]) -> Promise
 
-Alias of [Database#run()](#run).
+Alias of [Database#run()](#run) for compatibility with earlier Naomi versions.
 
 ### <a name="schema" href="schema">#</a>schema(definition) -> [Schema](schema.md)
 
