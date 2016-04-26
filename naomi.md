@@ -4,8 +4,8 @@
 
 * [Introduction](#introduction)
 * [Methods](#methods)
-  * [register(id, engine)](#register)
-  * [create(engineId, [connectionProperties])](#create)
+  * [register(identifier, engine)](#register)
+  * [create(identifier, [connectionProperties])](#create)
 
 ## Introduction
 
