@@ -20,6 +20,10 @@ $ npm install naomi
 
 * Node.js 0.12+
 
+#### Database engines currently available
+
+1. [naomi-mysql](https://github.com/jmike/naomi-mysql)
+
 ## Philosophy
 
 Databases, besides data, contain meta-data; stuff like...
