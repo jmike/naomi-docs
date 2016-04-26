@@ -205,10 +205,12 @@ Updates the designated record(s) in the collection with the supplied payload.
 
 ##### Arguments
 
-1. `selector` _(boolean, number, string, Date, Object, Array\<Object\>)_ a naomi selection expression (required)
 1. `payload` _(Object)_ key-value pairs to set in the designated records (required)
-2. `options` _(Object)_ query options (optional)
-3. `callback` _(Function\<Error\, (Object, Array\<Object\>)>)_ callback function (optional)
+2. `selector` _(boolean, number, string, Date, Object, Array\<Object\>)_ a naomi selection expression (optional)
+3. `options` _(Object)_ query options (optional)
+  * `options.orderby` _(string, Object, Array\<string, Object\>)_ a naomi orderby expression (optional)
+  * `options.limit` _(number)_ maximum number of records to retrieve (optional)
+4. `callback` _(Function\<Error\, (Object, Array\<Object\>)>)_ callback function (optional)
 
 ##### Returns
 
@@ -217,7 +219,7 @@ Returns a [bluebird](http://bluebirdjs.com/docs/api-reference.html) promise that
 ##### Example
 
 ```javascript
-collection.update({ id: 2 }, { age: 20 })
+collection.update({ age: 20 }, { id: 2 })
   .then(() => {
     console.log(`Employee #2 has been successfully updated`);
   })
