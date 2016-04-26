@@ -1,3 +1,5 @@
+# Naomi singleton
+
 ## Table of Contents
 
 * [Introduction](#introduction)
@@ -57,7 +59,7 @@ The engine id is merely a string; you can call it whatever you want, e.g. "fooba
 
 ### <a name="create" href="create">#</a>create(identifier, [connectionProperties]) -> [Database](database.md)
 
-Creates and returns a new [[Database]] instance of the designated engine.
+Creates and returns a new [Database](database.md) instance of the designated engine.
 
 ##### Arguments
 
@@ -66,7 +68,7 @@ Creates and returns a new [[Database]] instance of the designated engine.
 
 ##### Returns
 
-Returns a new [[Database]] instance.
+Returns a new [Database](database.md) instance.
 
 ##### Example
 
