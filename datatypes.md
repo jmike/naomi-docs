@@ -28,6 +28,10 @@ A detailed description of Naomi datatypes and their related properties.
   * [email.nullable(nullable)](#emailnullable)
   * [email.trim(trim)](#emailtrim)
   * [email.uppercase(uppercase)](#emailuppercase)
+* [enum](#enum)
+  * [enum.default(value)](#enumdefault)
+  * [enum.nullable(nullable)](#enumnullable)
+  * [enum.values(values)](#enumvalues)
 * [string](#string)
   * [string.default(value)](#stringdefault)
   * [string.length(limit)](#stringlength)
@@ -244,7 +248,7 @@ date.nullable(true); // accepts nil values
 
 ## email
 
-The _email_ datatype matches email types.
+The _email_ datatype matches email-formatted string types.
 
 ### <a name="emaildefault" href="emaildefault">#</a>email.default(value)
 
@@ -360,6 +364,57 @@ Requires the email value to contain no whitespace before or after.
 
 ```javascript
 email.trim(true);
+```
+
+
+## enum
+
+The _enum_ datatype matches a set of specific string values.
+
+### <a name="enumvalues" href="enumvalues">#</a>enum.values(values)
+
+Specifies allowed values.
+
+##### Parameters
+
+1. `values` _(Array<string>)_ an array of allowed values for this enumeration.
+
+##### Example
+
+```javascript
+enum.values(['a', 'b', 'c']);
+```
+
+### <a name="enumdefault" href="enumdefault">#</a>enum.default(value)
+
+Sets a default value for this datatype.
+
+##### Parameters
+
+1. `value` _(string, Function)_ the default value.
+
+##### Example
+
+```javascript
+enum.default('a');
+```
+
+##### Notes
+
+You may also specify a function to return the default value.
+
+### <a name="enumnullable" href="enumnullable">#</a>enum.nullable(nullable)
+
+Marks the datatype as optional, which allows the `undefined` and `null` values.
+
+##### Parameters
+
+1. `nullable` _(boolean)_ whether the datatype is nullable.
+
+##### Example
+
+```javascript
+enum.nullable(true);
 ```
 
 
