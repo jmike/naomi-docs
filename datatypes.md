@@ -41,6 +41,14 @@ A detailed description of Naomi datatypes and their related properties.
   * [float.positive(positive)](#floatpositive)
   * [float.precision(precision)](#floatprecision)
   * [float.scale(scale)](#floatscale)
+* [integer](#integer)
+  * [integer.autoinc(autoinc)](#integerautoinc)
+  * [integer.default(value)](#integerdefault)
+  * [integer.max(limit)](#integermax)
+  * [integer.min(limit)](#integermin)
+  * [integer.negative(negative)](#integernegative)
+  * [integer.nullable(nullable)](#integernullable)
+  * [integer.positive(positive)](#integernegative)
 * [string](#string)
   * [string.default(value)](#stringdefault)
   * [string.length(limit)](#stringlength)
@@ -549,6 +557,113 @@ Specifies the number of decimal digits allowed in value.
 
 ```javascript
 float.scale(2);
+```
+
+
+## integer
+
+The _integer_ datatype matches integer numbers.
+
+### <a name="integerautoinc" href="integerautoinc">#</a>integer.autoinc(autoinc)
+
+If set to true marks value as automatically incremented. This has no effect in validation, but is essential to communicating with the database.
+
+##### Parameters
+
+1. `autoinc` _(boolean)_ whether the value is automatically incremented.
+
+##### Example
+
+```javascript
+integer.autoinc(true);
+```
+
+### <a name="integerdefault" href="integerdefault">#</a>integer.default(value)
+
+Sets a default value for this datatype.
+
+##### Parameters
+
+1. `value` _(number, Function)_ the default value.
+
+##### Example
+
+```javascript
+integer.default(123);
+```
+
+##### Notes
+
+You may also specify a function to return the default value, e.g.
+
+### <a name="integermax" href="integermax">#</a>integer.max(limit)
+
+Specifies the maximum allowed value.
+
+##### Parameters
+
+1. `limit` _(number)_ the maximum value allowed.
+
+##### Example
+
+```javascript
+integer.max(999);
+```
+
+### <a name="integermin" href="integermin">#</a>integer.min(limit)
+
+Specifies the minimum allowed value.
+
+##### Parameters
+
+1. `limit` _(number)_ the minimum value allowed.
+
+##### Example
+
+```javascript
+integer.min(-100);
+```
+
+### <a name="integernegative" href="integernegative">#</a>integer.negative(negative)
+
+If set to true requires value to be negative.
+
+##### Parameters
+
+1. `negative` _(boolean)_ whether the value is negative.
+
+##### Example
+
+```javascript
+integer.negative(true);
+```
+
+### <a name="integernullable" href="integernullable">#</a>integer.nullable(nullable)
+
+Marks the datatype as optional, which allows the `undefined` and `null` values.
+
+##### Parameters
+
+1. `nullable` _(boolean)_ whether the datatype is nullable.
+
+##### Example
+
+```javascript
+integer.nullable(true);
+```
+
+### <a name="integerpositive" href="integerpositive">#</a>integer.positive(positive)
+
+If set to true requires value to be positive.
+
+##### Parameters
+
+1. `positive` _(boolean)_ whether the value is positive.
+
+##### Example
+
+```javascript
+integer.positive(true);
 ```
 
 
