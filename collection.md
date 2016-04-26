@@ -2,6 +2,7 @@
 
 ## Table of Contents
 
+* [Intro](#intro)
 * [Methods](#methods)
   * [find([selector], [options], [callback])](#find)
   * [findStream([selector], [options])](#findStream)
@@ -12,6 +13,38 @@
   * [upsert(records, [options], [callback])](#upsert)
   * [update(selector, payload, [options], [callback])](#update)
   * [reverseEngineer([callback])](#reverseEngineer)
+
+## Intro
+
+As far as Naomi is concerned, a "collection" is a set of commonly structured records that exist in a database, e.g. a MySQL table, a Mongo collection or an ElasticSearch type.
+
+The Collection class provides sensible methods to manage data in a collection.
+
+### How to create a Collection instance?
+
+Collection instances should always be created using the [Database#collection()](database.md#collection) method, e.g.
+
+```javascript
+var naomi = require('naomi');
+var mysql = require('naomi-mysql');
+
+naomi.register('mysql', mysql);
+
+var db = naomi.create('mysql', {
+  host: 'localhost',
+  port: 3306,
+  user: 'root',
+  password: 'xxxxxxxx',
+  database: 'my_schema'
+});
+
+var collection = db.collection('employees', {
+  id: { type: 'integer', autoinc: true, min: 0 },
+  firstname: { type: 'string', maxLength: 45, nullable: true },
+  lastname: { type: 'string', maxLength: 45, nullable: true },
+  age: { type: 'integer', min: 18, max: 100 }
+});
+```
 
 ## Methods
 
@@ -64,7 +97,7 @@ Retrieves the designated records from the collection as a Readable Stream.
 
 ##### Returns
 
-Returns a [ReadStream](https://nodejs.org/dist/latest-v5.x/docs/api/fs.html#fs_class_fs_readstream)
+Returns a [ReadStream](https://nodejs.org/dist/latest-v5.x/docs/api/fs.html#fs_class_fs_readstream).
 
 ##### Example
 
