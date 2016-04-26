@@ -34,35 +34,42 @@ $ npm install naomi
 
 Databases, besides data, contain meta-data; stuff like...
 
-* Column names + datatypes;
-* Indices (primary keys, unique keys, etc);
-* Constraints;
-* Relations.
+* Keys + datatypes
+* Indices
+* Constraints
+* Relations
 
-These metadata can be extracted from the database and are sufficient for generating basic validation rules and application structure. Yet most ORM tools tend to ignore database metadata and replicate that information in the application layer. This results to:
+These meta-data can be extracted from the database and are sufficient for generating basic validation rules and application structure. Yet most ORM tools tend to ignore meta-data living in the database and replicate that information in the application layer, which results to:
 
-* **Unnecessary complexity**, i.e. you trade SQL with an ORM-specific API that is equally complex;
-* **Synchronization issues**, i.e. the sky falls on your head when you change the db schema;
-* **Reduced expressiveness**, i.e. no ORM can fully implement the expressiveness of SQL.
+* Unnecessary complexity, i.e. you trade a native query language (like SQL) with an ORM-specific API that is equally complex;
+* Synchronization issues, i.e. the sky falls on your head every time you change the database schema;
+* Reduced expressiveness, i.e. no ORM can fully implement the expressiveness of a native query language.
 
 ##### How is Naomi different?
 
-Naomi works the other way around:
+Naomi works the boths ways:
 
-1. You first create the database using a tool of your choice, e.g. [MySQL Workbench](http://www.mysql.com/products/workbench/), [pgAdmin](http://www.pgadmin.org/) - a tool you already know;
-2. You call a few simple methods to extract meta-information to the application layer.
+###### Use case A
+
+1. You first create the database using a tool of your choice, e.g. [MySQL Workbench](http://www.mysql.com/products/workbench/) or [pgAdmin](http://www.pgadmin.org/) - a tool you already know;
+2. You call a simple method (namely [Collection#reverseEngineer()](collection.md#reverseEngineer)) to pull meta-information to the application layer.
 
 While this approach may seem intriguing to new developers, it is in fact the natural way of thinking for experienced engineers. Creating a database requires creativity and imagination that machines lack. It is a task made for humans.
 
-Naomi takes care of the SQL code by automating repetitive data queries. And if you need some custom logic you can always write it yourself.
+###### Use case B
+
+1. You ;
+2. You call a few simple methods to extract meta-information to the application layer.
+
+In any case, naomi takes care of the SQL code by automating repetitive data queries. And if you need some custom logic you can always write it yourself.
 
 ## Acknowledgements
 
 This project would not be without the extraordinary work of:
 
-* Felix Geisendörfer (https://github.com/felixge/node-mysql)
 * Nicolas Morel (https://github.com/hapijs/joi)
 * Petka Antonov (https://github.com/petkaantonov/bluebird)
+* Felix Geisendörfer (https://github.com/felixge/node-mysql)
 
 ## Contribute
 
