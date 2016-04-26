@@ -5,7 +5,7 @@
 * [Methods](#methods)
   * [connect([callback])](#connect)
   * [disconnect([callback])](#disconnect)
-  * [run(query, [options], [callback])](#run)
+  * [execute(query, [options], [callback])](#execute)
   * [query(query, [options], [callback])](#query)
   * [schema(definition)](#schema)
   * [collection(name, [schema])](#collection)
@@ -60,9 +60,9 @@ db.disconnect()
   });
 ```
 
-### <a name="run" href="run">#</a>run(query, [options], [callback]) -> Promise
+### <a name="execute" href="execute">#</a>execute(query, [options], [callback]) -> Promise
 
-Runs the given native query.
+Executes the given native query and returns results.
 
 ##### Arguments
 
