@@ -59,10 +59,13 @@ A detailed description of Naomi datatypes and their related properties.
   * [string.regex(regex)](#stringregex)
   * [string.trim(trim)](#stringtrim)
   * [string.uppercase(uppercase)](#stringuppercase)
+* [uuid](#uuid)
+  * [uuid.default(value)](#uuiddefault)
+  * [uuid.nullable(nullable)](#uuidnullable)
 
 ## binary
 
-The _binary_ datatype matches [Buffer](https://nodejs.org/api/buffer.html) and string types (the latter being converted to Buffer internally).
+The _binary_ datatype is meant for storing binary data. It accepts [Buffer](https://nodejs.org/api/buffer.html) and string types (the latter being converted to Buffer internally).
 
 ### <a name="binarydefault" href="binarydefault">#</a>binary.default(value)
 
@@ -155,7 +158,7 @@ binary.nullable(true); // allows nil values
 
 ## boolean
 
-The _boolean_ datatype matches boolean types (as well as the strings 'true', 'false', 'yes', 'no', 'on' or 'off').
+The _boolean_ datatype is meant for storing boolean values. It accepts booleans, as well as the strings 'true', 'false', 'yes', 'no', 'on' or 'off'.
 
 ### <a name="booleannullable" href="booleannullable">#</a>boolean.nullable(nullable)
 
@@ -174,7 +177,7 @@ boolean.nullable(true); // allows nil values
 
 ## date
 
-The _date_ datatype matches JavaScript Date types, date strings and number of milliseconds.
+The _date_ datatype is meant for storing date values. It accept JavaScript Date types, date-formatted strings and numbers (milliseconds since the epoch).
 
 ### <a name="datedefault" href="datedefault">#</a>date.default(value)
 
@@ -200,7 +203,7 @@ date.default(Date.now);
 
 ### <a name="dateformat" href="dateformat">#</a>date.format(format)
 
-Specifies the allowed date format.
+Specifies the date format.
 
 ##### Parameters
 
@@ -265,7 +268,7 @@ date.nullable(true); // accepts nil values
 
 ## email
 
-The _email_ datatype matches email-formatted string types.
+The _email_ datatype is meant for storing email values. It accepts email-formatted strings.
 
 ### <a name="emaildefault" href="emaildefault">#</a>email.default(value)
 
@@ -386,7 +389,7 @@ email.trim(true);
 
 ## enum
 
-The _enum_ datatype matches a set of predefined string values.
+The _enum_ datatype is meant for storing a set of predefined string values.
 
 ### <a name="enumvalues" href="enumvalues">#</a>enum.values(values)
 
@@ -437,7 +440,7 @@ enum.nullable(true);
 
 ## float
 
-The _float_ datatype matches float numbers.
+The _float_ datatype is meant for storing float numbers.
 
 ### <a name="floatdefault" href="floatdefault">#</a>float.default(value)
 
@@ -562,7 +565,7 @@ float.scale(2);
 
 ## integer
 
-The _integer_ datatype matches integer numbers.
+The _integer_ datatype is meant for storing integer numbers.
 
 ### <a name="integerautoinc" href="integerautoinc">#</a>integer.autoinc(autoinc)
 
@@ -669,7 +672,7 @@ integer.positive(true);
 
 ## string
 
-The _string_ datatype matches string types.
+The _string_ datatype is meant for storing strings.
 
 ### <a name="stringdefault" href="stringdefault">#</a>string.default(value)
 
@@ -799,4 +802,41 @@ Requires the string value to contain no whitespace before or after.
 
 ```javascript
 string.trim(true);
+```
+
+
+## uuid
+
+The _uuid_ datatype is meant for storing [Universal Unique Identifiers](https://en.wikipedia.org/wiki/Universally_unique_identifier).
+
+### <a name="uuiddefault" href="uuiddefault">#</a>uuid.default(value)
+
+Sets a default value if the original value is undefined.
+
+##### Parameters
+
+1. `default` _(string, Function)_ the default value.
+
+##### Example
+
+The following example assumes use of the notorious [node-uuid](https://github.com/broofa/node-uuid) library.
+
+```javascript
+var uuidGenerator = require('uuid');
+
+uuid.default(uuidGenerator.v4);
+```
+
+### <a name="uuidnullable" href="uuidnullable">#</a>uuid.nullable(nullable)
+
+Marks the datatype as optional, which allows the `undefined` and `null` values.
+
+##### Parameters
+
+1. `nullable` _(boolean)_ whether the datatype is nullable.
+
+##### Example
+
+```javascript
+uuid.nullable(true); // accepts nil values
 ```
