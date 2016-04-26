@@ -54,7 +54,6 @@ Naomi takes care of the SQL code by automating repetitive data queries. And if y
 This project would not be without the extraordinary work of:
 
 * Felix Geisendörfer (https://github.com/felixge/node-mysql)
-* Brian C (https://github.com/brianc/node-postgres)
 * Nicolas Morel (https://github.com/hapijs/joi)
 * Petka Antonov (https://github.com/petkaantonov/bluebird)
 
