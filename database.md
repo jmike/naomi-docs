@@ -6,6 +6,7 @@
   * [connect([callback])](#connect)
   * [disconnect([callback])](#disconnect)
   * [run(query, [options], [callback])](#run)
+  * [query(query, [options], [callback])](#query)
   * [schema(definition)](#schema)
   * [collection(name, [schema])](#collection)
 
@@ -92,6 +93,10 @@ db.run({
     console.error(err);
   });
 ```
+
+### <a name="query" href="query">#</a>query(query, [options], [callback]) -> Promise
+
+Alias of [Database#run()](#run).
 
 ### <a name="schema" href="schema">#</a>schema(definition) -> [Schema](schema.md)
 
