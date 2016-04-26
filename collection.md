@@ -6,7 +6,7 @@ The Collection class provides sensible methods to manage data in a collection.
 
 ## Table of Contents
 
-* [Creating a Collection instance](#creating-a-collection-instance)
+* [How to create a collection](#how-to-create-a-collection)
 * [Methods](#methods)
   * [find([selector], [options], [callback])](#find)
   * [findStream([selector], [options])](#findStream)
@@ -18,7 +18,7 @@ The Collection class provides sensible methods to manage data in a collection.
   * [update(selector, payload, [options], [callback])](#update)
   * [reverseEngineer([callback])](#reverseEngineer)
 
-## Creating a Collection instance
+## How to create a collection?
 
 Collection instances should always be created using the [Database#collection()](database.md#collection) method, e.g.
 
