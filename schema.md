@@ -1,7 +1,10 @@
-# Schema class
+# Schema
+
+The Schema class holds information on a collection's keys and indices. It can be used to validate records before inserting to a [collection](collection.md).
 
 ## Table of Contents
 
+* [How to create a schema](#how-to-create-a-schema)
 * [Methods](#methods)
   * [extend(spec)](#extend)
   * [index(payload, [options])](#index)
@@ -19,6 +22,32 @@
   * [validate(record, [keys], [callback])](#validate)
   * [toJoi()](#toJoi)
   * [toJSON()](#toJSON)
+
+## How to create a schema?
+
+Schema instances should always be created using the [Database#schema()](database.md#collection) method, e.g.
+
+```javascript
+var naomi = require('naomi');
+var mysql = require('naomi-mysql');
+
+naomi.register('mysql', mysql);
+
+var db = naomi.create('mysql', {
+  host: 'localhost',
+  port: 3306,
+  user: 'root',
+  password: 'xxxxxxxx',
+  database: 'my_schema'
+});
+
+var schema = db.schema({
+  id: { type: 'integer', autoinc: true, min: 0 },
+  firstname: { type: 'string', maxLength: 45, nullable: true },
+  lastname: { type: 'string', maxLength: 45, nullable: true },
+  age: { type: 'integer', min: 18, max: 100 }
+});
+```
 
 ## Methods
 
