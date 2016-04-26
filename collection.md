@@ -9,6 +9,7 @@
   * [remove([selector], [options], [callback])](#remove)
   * [insert(records, [options], [callback])](#insert)
   * [upsert(records, [options], [callback])](#upsert)
+  * [update(selector, payload, [options], [callback])](#update)
 
 ## Methods
 
@@ -33,7 +34,7 @@ Returns a [bluebird](http://bluebirdjs.com/docs/api-reference.html) promise reso
 ##### Example
 
 ```javascript
-db.find({ age: { $gte: 18 } })
+collection.find({ age: { $gte: 18 } })
   .then((records) => {
     // do something with records
   })
@@ -66,7 +67,7 @@ Returns a [bluebird](http://bluebirdjs.com/docs/api-reference.html) promise reso
 ##### Example
 
 ```javascript
-db.findOne({ id: 10 })
+collection.findOne({ id: 10 })
   .then((record) => {
     // do something with record
   })
@@ -99,7 +100,7 @@ Returns a [bluebird](http://bluebirdjs.com/docs/api-reference.html) promise reso
 ##### Example
 
 ```javascript
-db.count({ age: { $gte: 18 } })
+collection.count({ age: { $gte: 18 } })
   .then((n) => {
     console.log(`Found ${n} record(s)`);
   })
@@ -127,9 +128,9 @@ Returns a [bluebird](http://bluebirdjs.com/docs/api-reference.html) promise that
 ##### Example
 
 ```javascript
-db.remove({ age: { $lt: 18 } })
+collection.remove({ age: { $lt: 18 } })
   .then(() => {
-    console.log(`Removed employees under the age of 18`);
+    console.log(`Removed all employees under the age of 18`);
   })
   .catch((err) => {
     console.error(err);
@@ -157,7 +158,7 @@ Returns a [bluebird](http://bluebirdjs.com/docs/api-reference.html) promise reso
 ##### Example
 
 ```javascript
-db.insert([
+collection.insert([
   { firstname: 'Mr.', lastname: 'Doobs', age: 18 },
   { firstname: 'George', lastname: 'Fudge', age: 19 },
   { firstname: 'Jack', lastname: 'White', age: 20 }
@@ -187,11 +188,38 @@ Returns a [bluebird](http://bluebirdjs.com/docs/api-reference.html) promise reso
 ##### Example
 
 ```javascript
-db.upsert([
+collection.upsert([
   { firstname: 'Mr.', lastname: 'Doobs', age: 19 }
  ])
   .then((pk) => {
     // do something with pk array
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+```
+
+### <a name="update" href="update">#</a>update(selector, payload, [options], [callback]) -> Promise
+
+Updates the designated record(s) in the collection with the supplied payload.
+
+##### Arguments
+
+1. `selector` _(boolean, number, string, Date, Object, Array\<Object\>)_ a naomi selection expression (required)
+1. `payload` _(Object)_ key-value pairs to set in the designated records (required)
+2. `options` _(Object)_ query options (optional)
+3. `callback` _(Function\<Error\, (Object, Array\<Object\>)>)_ callback function (optional)
+
+##### Returns
+
+Returns a [bluebird](http://bluebirdjs.com/docs/api-reference.html) promise that will resolve when records have been successfully updated.
+
+##### Example
+
+```javascript
+collection.update({ id: 2 }, { age: 20 })
+  .then(() => {
+    console.log(`Employee #2 has been successfully updated`);
   })
   .catch((err) => {
     console.error(err);
