@@ -104,7 +104,7 @@ var employees = db.collection('employees', {
 });
 ```
 
-###### Pull schema definition from database
+###### Pulling schema definition from database
 
 ```javascript
 var employees = db.collection('employees');
