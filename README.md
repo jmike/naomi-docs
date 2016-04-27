@@ -19,10 +19,10 @@ $ npm install naomi
 
 * Node.js 0.12+
 
-#### Database engines currently available
+#### Connectors currently available
 
-|Database engine|Maintainer|Build status|npm version|
-|---|---|---|---|
+| Connector | Maintainer | Build status | npm version |
+|---|---|:---:|:---:|
 | [naomi-mysql](https://github.com/jmike/naomi-mysql) | [jmike](https://github.com/jmike) | [![Build Status](https://travis-ci.org/jmike/naomi-mysql.svg?branch=master)](https://travis-ci.org/jmike/naomi-mysql) | [![npm version](https://badge.fury.io/js/naomi-mysql.svg)](https://badge.fury.io/js/naomi-mysql) |
 
 ## API Docs
