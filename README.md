@@ -21,7 +21,9 @@ $ npm install naomi
 
 #### Database engines currently available
 
-1. [naomi-mysql](https://github.com/jmike/naomi-mysql)
+|Database engine|Maintainer|Build status|npm version|
+|---|---|---|---|
+| [naomi-mysql](https://github.com/jmike/naomi-mysql) | [jmike](https://github.com/jmike) | [![Build Status](https://travis-ci.org/jmike/naomi-mysql.svg?branch=master)](https://travis-ci.org/jmike/naomi-mysql) | [![npm version](https://badge.fury.io/js/naomi-mysql.svg)](https://badge.fury.io/js/naomi-mysql) |
 
 ## API Docs
 
