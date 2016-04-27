@@ -25,6 +25,113 @@ $ npm install naomi
 |---|---|:---:|:---:|
 | [naomi-mysql](https://github.com/jmike/naomi-mysql) | [jmike](https://github.com/jmike) | [![Build Status](https://travis-ci.org/jmike/naomi-mysql.svg?branch=master)](https://travis-ci.org/jmike/naomi-mysql) | [![npm version](https://badge.fury.io/js/naomi-mysql.svg)](https://badge.fury.io/js/naomi-mysql) |
 
+## Quick start
+
+Install naomi and the appropriate connector for your database, e.g. `naomi-mysql`.
+
+```
+$ npm install naomi --save
+$ npm install naomi-mysql --save
+```
+
+Register connector with Naomi under name "mysql".
+
+```javascript
+var naomi = require('naomi');
+var mysql = require('naomi-mysql');
+
+naomi.register('mysql', mysql);
+```
+
+Use [naomi#create()](naomi.md#create) to create a new [Database](database.md).
+
+```javascript
+var db = naomi.create('mysql', {
+  host: 'host',
+  port: 3306,
+  user: 'user',
+  password: 'password',
+  database: 'schema',
+});
+```
+
+Connect to database using [Database#connect()](database.md#connect). Please note you may use the callback interface instead of promises.
+
+```javascript
+db.connect()
+  .then(() => {
+    console.log('connected');
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+```
+
+Run custom queries using [Database#execute()](database.md#exectute).
+
+```javascript
+var sql = ;
+var params = ;
+
+db.execute({
+  sql: 'SELECT `firstname`, `lastname` FROM `employees` WHERE `id` = ?;', // please note: ? will be replaced with 1 from params array
+  params: [1]
+})
+  .then((results) => {
+    if (results.length === 0) {
+      console.warn('Not found');
+    } else {
+      console.log(results[0]);
+    }
+  })
+  .catch(function (err) {
+    console.error(err);
+  });
+```
+
+You wouldn't normally use an ORM to run custom queries. Naomi provides a [Collection](collection.md) interface to map database collections (e.g. tables) to objects and run repretitive CRUD tasks.
+
+Use [Database#collection()](database.md#collection) to create a new Collection.
+
+###### Specifying schema definition
+
+```javascript
+var employees = db.collection('employees', {
+  id: { type: 'integer', autoinc: true, min: 0 },
+  firstname: { type: 'string', maxLength: 45, nullable: true },
+  lastname: { type: 'string', maxLength: 45, nullable: true },
+  age: { type: 'integer', min: 18, max: 100 }
+});
+```
+
+###### Pull schema definition from database
+
+```javascript
+var employees = db.collection('employees');
+
+employees.reverseEngineer()
+  .then(() => {
+    console.log('schema updated');
+  })
+  .catch(function (err) {
+    console.error(err);
+  });
+```
+
+The Collection class exposes the following methods:
+
+1. [find()](collection.md#find) - retrieves records from the collection;
+2. [findOne()](collection.md#findOne) - retrieves a single record from the collection;
+3. [findStream()](collection.md#findStream) - retrieves records from the collection as a readable stream;
+4. [count()](collection.md#count) - counts records in the collection;
+5. [remove()](collection.md#remove) - removes records from the collection;
+6. [insert()](collection.md#insert) - inserts record(s) to the collection;
+7. [upsert()](collection.md#upsert) - upserts record(s) to the collection;
+8. [upsert()](collection.md#upsert) - upserts record(s) to the collection;
+9. [update()](https://github.com/jmike/naomi/blob/master/docs/table.md#set) - updates record(s) in the collection with the supplied payload.
+
+Additional collection methods may exist depending on the database connector.
+
 ## API Docs
 
 * [Naomi singleton](naomi.md)
