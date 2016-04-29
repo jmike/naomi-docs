@@ -414,7 +414,7 @@ The Projection expression limits the keys returned from a query.
 
 ##### Accepted Values
 
-_Object\<string, number\>_ where number is 1 or true for inclusion and -1 or false for exclusion
+_Object\<string, number\>_ where number is `1` or `true` for inclusion and `-1` or `false` for exclusion
 
 ##### Example with inclusion
 
@@ -451,7 +451,7 @@ The OrderBy expression sorts the results of a query in ascending or descending o
 
 ##### Accepted Values
 
-_Array\<(string, Object\<string, number\>)\>_ where number is 1 for ascending order and and -1 for descending order
+_Array\<(string, Object\<string, number\>)\>_ where number is `1` for ascending order and and `-1` for descending order
 
 ##### Notes
 
