@@ -25,7 +25,7 @@ The naomi mongo-like query language.
 
 ### <a name="selection" href="#selection">#</a>Selection
 
-The Selection expression specifies the records to return from a query.
+Specifies the records to return in a query.
 
 ##### Accepted Values
 
@@ -410,7 +410,7 @@ The above would be the rough equivalent of:
 
 ### <a name="projection" href="#projection">#</a>Projection
 
-The Projection expression limits the keys returned from a query.
+Specifies the keys returned from a query.
 
 ##### Accepted Values
 
@@ -447,7 +447,7 @@ SELECT firstname, lastname, age; // id is excluded
 
 ### <a name="orderby" href="#orderby">#</a>OrderBy
 
-The OrderBy expression sorts the results of a query in ascending or descending order.
+Sorts the results of a query in ascending or descending order.
 
 ##### Accepted Values
 
@@ -502,3 +502,50 @@ The above would be the rough equivalent of:
 ```sql
 ORDER BY firstname ASC, lastname ASC, id ASC
 ```
+
+### <a name="limit" href="#limit">#</a>Limit
+
+Limits the number of records returned in a query.
+
+##### Accepted Values
+
+_number_ must be a positive integer, i.e. `> 0`
+
+##### Example
+
+```javascript
+var limit = 5;
+```
+
+The above would be the rough equivalent of:
+
+```sql
+LIMIT 5
+```
+
+### <a name="offset" href="#offset">#</a>Offset
+
+Skips the designated number of records.
+
+##### Accepted Values
+
+_number_ must be a non-negative integer, i.e. `>= 0` (including 0)
+
+##### Example
+
+```javascript
+var options = {
+  limit: 5,
+  offset: 10
+};
+```
+
+The above is the rough equivalent of:
+
+```sql
+LIMIT 5 OFFSET 10
+```
+
+#### Notes
+
+Can only be used in combination with [Limit](#limit)
