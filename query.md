@@ -25,7 +25,7 @@ The naomi mongo-like query language.
 
 ### <a name="selection" href="#selection">#</a>Selection
 
-The selection expression specifies the records to return in a query operation.
+The Selection expression specifies the records to return from a query.
 
 ##### Accepted Values
 
@@ -410,7 +410,7 @@ The above would be the rough equivalent of:
 
 ### <a name="projection" href="#projection">#</a>Projection
 
-The projection expression limits the keys returned from a query operation by specifying inclusion and exclusion of fields.
+The Projection expression limits the keys returned from a query.
 
 ##### Accepted Values
 
@@ -443,4 +443,62 @@ Given a collection with `id`, `firstname`, `lastname` and `age` keys, the above 
 
 ```sql
 SELECT firstname, lastname, age; // id is excluded
+```
+
+### <a name="orderby" href="#orderby">#</a>OrderBy
+
+The OrderBy expression sorts the results of a query in ascending or descending order.
+
+##### Accepted Values
+
+_Array\<(string, Object\<string, number\>)\>_ where number is 1 for ascending order and and -1 for descending order
+
+##### Notes
+
+_String_ values are interpreted as having ascending order.
+
+##### Example with Array\<Object\>
+
+```javascript
+var orderby = [
+  { firstname: 1 },
+  { age: -1 }
+];
+```
+
+The above would be the rough equivalent of:
+
+```sql
+ORDER BY firstname ASC, age DESC
+```
+
+##### Example with Array\<string\>
+
+```javascript
+var orderby = [
+  'firstname',
+  'lastname'
+];
+```
+
+The above would be the rough equivalent of:
+
+```sql
+ORDER BY firstname ASC, lastname ASC
+```
+
+##### Example with mixed Array
+
+```javascript
+var orderby = [
+  'firstname',
+  'lastname',
+  { id: -1 }
+];
+```
+
+The above would be the rough equivalent of:
+
+```sql
+ORDER BY firstname ASC, lastname ASC, id ASC
 ```
