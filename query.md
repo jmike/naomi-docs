@@ -92,11 +92,11 @@ id = 1 OR id = 2 OR firstname = 'Jack'
 
 ### <a name="eq" href="#eq">$</a>eq
 
-"Equals with" expression.
+"Equals with" operator.
 
 ##### Accepted Values
 
-_String, Number, Boolean, Date, Buffer_
+_string, number, boolean, Date, Buffer_
 
 ##### Example
 
@@ -124,11 +124,11 @@ var selection = {
 
 ### <a name="ne" href="#ne">$</a>ne
 
-"Not equal with" expression.
+"Not equal with" operator.
 
 ##### Accepted Values
 
-_String, Number, Boolean, Date, Buffer_
+_string, number, boolean, Date, Buffer_
 
 ##### Example
 
@@ -148,11 +148,11 @@ age != 20
 
 ### <a name="lt" href="#lt">$</a>lt
 
-"Less than" expression.
+"Less than" operator.
 
 ##### Accepted Values
 
-_String, Number, Boolean, Date, Buffer_
+_string, number, boolean, Date, Buffer_
 
 ##### Example
 
@@ -172,11 +172,11 @@ age < 30
 
 ### <a name="lte" href="#lte">$</a>lte
 
-"Less than or equal" expression.
+"Less than or equal" operator.
 
 ##### Accepted Values
 
-_String, Number, Boolean, Date, Buffer_
+_string, number, boolean, Date, Buffer_
 
 ##### Example
 
@@ -196,11 +196,11 @@ age <= 30
 
 ### <a name="gt" href="#gt">$</a>gt
 
-"Greater than" expression.
+"Greater than" operator.
 
 ##### Accepted Values
 
-_String, Number, Boolean, Date, Buffer_
+_string, number, boolean, Date, Buffer_
 
 ##### Example
 
@@ -220,11 +220,11 @@ age > 18
 
 ### <a name="gte" href="#gte">$</a>gte
 
-"Greater than or equal" expression.
+"Greater than or equal" operator.
 
 ##### Accepted Values
 
-_String, Number, Boolean, Date, Buffer_
+_string, number, boolean, Date, Buffer_
 
 ##### Example
 
@@ -244,11 +244,11 @@ age >= 30
 
 ### <a name="in" href="#in">$</a>in
 
-"In" expression.
+"In" operator.
 
 ##### Accepted Values
 
-_Array of String, Number, Boolean, Date, Buffer_
+_Array of string, number, boolean, Date, Buffer_
 
 ##### Example
 
@@ -268,11 +268,11 @@ age IN (18, 30)
 
 ### <a name="nin" href="#nin">$</a>nin
 
-"Not in" expression.
+"Not in" operator.
 
 ##### Accepted Values
 
-_Array of String, Number, Boolean, Date, Buffer_
+_Array of string, number, boolean, Date, Buffer_
 
 ##### Example
 
@@ -292,11 +292,11 @@ age NOT IN (19, 31)
 
 ### <a name="like" href="#like">$</a>like
 
-"Like" expression.
+"Like" operator.
 
 ##### Accepted Values
 
-_String_
+_string_
 
 ##### Example
 
@@ -316,11 +316,11 @@ firstname LIKE 'Joh%'
 
 ### <a name="nlike" href="#nlike">$</a>nlike
 
-"Not like" expression.
+"Not like" operator.
 
 ##### Accepted Values
 
-_String_
+_string_
 
 ##### Example
 
@@ -360,7 +360,7 @@ id != 15
 
 ### <a name="and" href="#and">$</a>and
 
-"Logical and" expression.
+"Logical and" operator.
 
 ##### Accepted Values
 
@@ -385,7 +385,7 @@ The above would be the rough equivalent of:
 
 ### <a name="or" href="#or">$</a>or
 
-"Logical or" expression.
+"Logical or" operator.
 
 ##### Accepted Values
 
