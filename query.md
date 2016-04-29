@@ -4,19 +4,28 @@ The naomi mongo-like query language.
 
 ## Table of Contents
 
-* [$and](#and)
-* [$or](#or)
-* [$eq](#eq)
-* [$ne](#ne)
-* [$lt](#lt)
-* [$lte](#lte)
-* [$gt](#gt)
-* [$gte](#gte)
-* [$in](#in)
-* [$nin](#nin)
-* [$like](#like)
-* [$nlike](#nlike)
-* [$id](#id)
+* [Selection](#selection)
+  * [$and](#and)
+  * [$or](#or)
+  * [$eq](#eq)
+  * [$ne](#ne)
+  * [$lt](#lt)
+  * [$lte](#lte)
+  * [$gt](#gt)
+  * [$gte](#gte)
+  * [$in](#in)
+  * [$nin](#nin)
+  * [$like](#like)
+  * [$nlike](#nlike)
+  * [$id](#id)
+* [Projection](#projection)
+* [OrderBy](#orderby)
+* [Limit](#limit)
+* [Offset](#offset)
+
+### <a name="selection" href="#selection">#</a>Selection expression
+
+The projection expression limits the fields returned from a query operation by specifying the inclusion of fields or the exclusion of fields.
 
 ### <a name="and" href="#and">$</a>and
 
@@ -29,7 +38,7 @@ _Array_
 ##### Example
 
 ```javascript
-var $query = {
+var selection = {
   $and: [
     {firstname: 'john'}
     {lastname: 'doe'}
@@ -54,7 +63,7 @@ _Array_
 ##### Example
 
 ```javascript
-var $query = {
+var selection = {
   $or: [
     {firstname: 'john'}
     {firstname: 'maria'}
@@ -79,7 +88,7 @@ _String, Number, Boolean, Date, Buffer_
 ##### Example
 
 ```javascript
-var $query = {
+var selection = {
   id: {
     $eq: 1
   }
@@ -95,7 +104,7 @@ id = 1
 The same can be simply written as:
 
 ```javascript
-var $query = {
+var selection = {
   id: 1 // $eq is implied
 };
 ```
@@ -111,7 +120,7 @@ _String, Number, Boolean, Date, Buffer_
 ##### Example
 
 ```javascript
-var $query = {
+var selection = {
   age: {
     $ne: 20
   }
@@ -135,7 +144,7 @@ _String, Number, Boolean, Date, Buffer_
 ##### Example
 
 ```javascript
-var $query = {
+var selection = {
   age: {
     $lt: 30
   }
@@ -159,7 +168,7 @@ _String, Number, Boolean, Date, Buffer_
 ##### Example
 
 ```javascript
-var $query = {
+var selection = {
   age: {
     $lte: 30
   }
@@ -183,7 +192,7 @@ _String, Number, Boolean, Date, Buffer_
 ##### Example
 
 ```javascript
-var $query = {
+var selection = {
   age: {
     $gt: 18
   }
@@ -207,7 +216,7 @@ _String, Number, Boolean, Date, Buffer_
 ##### Example
 
 ```javascript
-var $query = {
+var selection = {
   age: {
     $gte: 18
   }
@@ -231,7 +240,7 @@ _Array of String, Number, Boolean, Date, Buffer_
 ##### Example
 
 ```javascript
-var $query = {
+var selection = {
   age: {
     $in: [18, 30]
   }
@@ -255,7 +264,7 @@ _Array of String, Number, Boolean, Date, Buffer_
 ##### Example
 
 ```javascript
-var $query = {
+var selection = {
   age: {
     $nin: [19, 31]
   }
@@ -279,7 +288,7 @@ _String_
 ##### Example
 
 ```javascript
-var $query = {
+var selection = {
   firstname: {
     $like: 'Joh%'
   }
@@ -303,7 +312,7 @@ _String_
 ##### Example
 
 ```javascript
-var $query = {
+var selection = {
   firstname: {
     $nlike: '%ar'
   }
@@ -323,7 +332,7 @@ Special ID clause; $id will be replaced with the primary key column.
 ##### Example
 
 ```javascript
-var $query = {
+var selection = {
   $id: {
     $ne: 15
   }
@@ -334,4 +343,41 @@ Given a table with an atomic primary key named "id", the above would be the roug
 
 ```sql
 id != 15
+```
+
+### <a name="projection" href="#projection">#</a>Projection
+
+The projection expression limits the keys returned from a query operation by specifying the inclusion of fields or the exclusion of fields.
+
+##### Accepted Values
+
+_Object\<string, number\>_ where number is 1 or true for inclusion and -1 or false for exclusion
+
+##### Example with inclusion
+
+```javascript
+var projection = {
+  firstname: 1,
+  lastname: 1
+};
+```
+
+The above would be the rough equivalent of:
+
+```sql
+SELECT firstname, lastname
+```
+
+##### Example with exclusion
+
+```javascript
+var projection = {
+  id: -1
+};
+```
+
+Given a collection with `id`, `firstname`, `lastname` and `age` keys, the above would be the rough equivalent of:
+
+```sql
+SELECT firstname, lastname, age; // id is excluded
 ```
