@@ -5,8 +5,6 @@ The naomi mongo-like query language.
 ## Table of Contents
 
 * [Selection](#selection)
-  * [$and](#and)
-  * [$or](#or)
   * [$eq](#eq)
   * [$ne](#ne)
   * [$lt](#lt)
@@ -18,6 +16,8 @@ The naomi mongo-like query language.
   * [$like](#like)
   * [$nlike](#nlike)
   * [$id](#id)
+  * [$and](#and)
+  * [$or](#or)
 * [Projection](#projection)
 * [OrderBy](#orderby)
 * [Limit](#limit)
@@ -88,56 +88,6 @@ Given a collection with `id` primary key, the above would be the rough equivalen
 
 ```sql
 id = 1 OR id = 2 OR firstname = 'Jack'
-```
-
-### <a name="and" href="#and">$</a>and
-
-"Logical and" expression.
-
-##### Accepted Values
-
-_Array_
-
-##### Example
-
-```javascript
-var selection = {
-  $and: [
-    {firstname: 'john'}
-    {lastname: 'doe'}
-  ]
-};
-```
-
-The above would be the rough equivalent of:
-
-```sql
-(firstname = 'john') AND (lastname = 'doe')
-```
-
-### <a name="or" href="#or">$</a>or
-
-"Logical or" expression.
-
-##### Accepted Values
-
-_Array_
-
-##### Example
-
-```javascript
-var selection = {
-  $or: [
-    {firstname: 'john'}
-    {firstname: 'maria'}
-  ]
-};
-```
-
-The above would be the rough equivalent of:
-
-```sql
-(firstname = 'john') OR (firstname = 'maria')
 ```
 
 ### <a name="eq" href="#eq">$</a>eq
@@ -406,6 +356,56 @@ Given a table with an atomic primary key named "id", the above would be the roug
 
 ```sql
 id != 15
+```
+
+### <a name="and" href="#and">$</a>and
+
+"Logical and" expression.
+
+##### Accepted Values
+
+_Array_
+
+##### Example
+
+```javascript
+var selection = {
+  $and: [
+    {firstname: 'john'}
+    {lastname: 'doe'}
+  ]
+};
+```
+
+The above would be the rough equivalent of:
+
+```sql
+(firstname = 'john') AND (lastname = 'doe')
+```
+
+### <a name="or" href="#or">$</a>or
+
+"Logical or" expression.
+
+##### Accepted Values
+
+_Array_
+
+##### Example
+
+```javascript
+var selection = {
+  $or: [
+    {firstname: 'john'}
+    {firstname: 'maria'}
+  ]
+};
+```
+
+The above would be the rough equivalent of:
+
+```sql
+(firstname = 'john') OR (firstname = 'maria')
 ```
 
 ### <a name="projection" href="#projection">#</a>Projection
