@@ -52,12 +52,12 @@ Retrieves the designated records from the collection.
 
 ##### Arguments
 
-1. `selector` _(boolean, number, string, Date, Object, Array\<Object\>)_ a naomi selection expression (optional)
+1. `selector` _(boolean, number, string, Date, Object, Array\<Object\>)_ a [selection expression](query.md#selection) (optional)
 2. `options` _(Object)_ query options (optional)
-  * `options.projection` _(Object)_ a naomi projection expression (optional)
-  * `options.orderby` _(string, Object, Array\<string, Object\>)_ a naomi orderby expression (optional)
-  * `options.limit` _(number)_ maximum number of records to retrieve (optional)
-  * `options.offset` _(number)_ number of records to skip (optional)
+  * `options.projection` _(Object)_ a [projection expression](query.md#projection) (optional)
+  * `options.orderby` _(string, Object, Array\<string, Object\>)_ an [orderby expression](query.md#orderby) (optional)
+  * `options.limit` _(number)_ a [limit expression](query.md#limit) (optional)
+  * `options.offset` _(number)_ an [offset expression](query.md#offset) (optional)
 3. `callback` _(Function\<Error, Array\<Object\>\>)_ callback function (optional)
 
 ##### Returns
@@ -86,12 +86,12 @@ Retrieves the designated records from the collection as a Readable Stream.
 
 ##### Arguments
 
-1. `selector` _(boolean, number, string, Date, Object, Array\<Object\>)_ a naomi selection expression (optional)
+1. `selector` _(boolean, number, string, Date, Object, Array\<Object\>)_ a [selection expression](query.md#selection) (optional)
 2. `options` _(Object)_ query options (optional)
-  * `options.projection` _(Object)_ a naomi projection expression (optional)
-  * `options.orderby` _(string, Object, Array\<string, Object\>)_ a naomi orderby expression (optional)
-  * `options.limit` _(number)_ maximum number of records to retrieve (optional)
-  * `options.offset` _(number)_ number of records to skip (optional)
+  * `options.projection` _(Object)_ a [projection expression](query.md#projection) (optional)
+  * `options.orderby` _(string, Object, Array\<string, Object\>)_ an [orderby expression](query.md#orderby) (optional)
+  * `options.limit` _(number)_ a [limit expression](query.md#limit) (optional)
+  * `options.offset` _(number)_ an [offset expression](query.md#offset) (optional)
 
 ##### Returns
 
@@ -110,11 +110,11 @@ Retrieves a single designated record from the collection.
 
 ##### Arguments
 
-1. `selector` _(boolean, number, string, Date, Object, Array\<Object\>)_ a naomi selection expression (optional)
+1. `selector` _(boolean, number, string, Date, Object, Array\<Object\>)_ a [selection expression](query.md#selection) (optional)
 2. `options` _(Object)_ query options (optional)
-  * `options.projection` _(Object)_ a naomi projection expression (optional)
-  * `options.orderby` _(string, Object, Array\<string, Object\>)_ a naomi orderby expression (optional)
-  * `options.offset` _(number)_ number of records to skip (optional)
+  * `options.projection` _(Object)_ a [projection expression](query.md#projection) (optional)
+  * `options.orderby` _(string, Object, Array\<string, Object\>)_ an [orderby expression](query.md#orderby) (optional)
+  * `options.offset` _(number)_ an [offset expression](query.md#offset) (optional)
 3. `callback` _(Function\<Error, (Object, undefined)\>)_ callback function (optional)
 
 ##### Returns
@@ -143,11 +143,11 @@ Counts the designated records in the collection.
 
 ##### Arguments
 
-1. `selector` _(boolean, number, string, Date, Object, Array\<Object\>)_ a naomi selection expression (optional)
+1. `selector` _(boolean, number, string, Date, Object, Array\<Object\>)_ a [selection expression](query.md#selection) (optional)
 2. `options` _(Object)_ query options (optional)
-  * `options.orderby` _(string, Object, Array\<string, Object\>)_ a naomi orderby expression (optional)
-  * `options.limit` _(number)_ maximum number of records to retrieve (optional)
-  * `options.offset` _(number)_ number of records to skip (optional)
+  * `options.orderby` _(string, Object, Array\<string, Object\>)_ an [orderby expression](query.md#orderby) (optional)
+  * `options.limit` _(number)_ a [limit expression](query.md#limit) (optional)
+  * `options.offset` _(number)_ an [offset expression](query.md#offset) (optional)
 3. `callback` _(Function\<Error, number\>)_ callback function (optional)
 
 ##### Returns
@@ -172,10 +172,10 @@ Removes the designated records from the collection.
 
 ##### Arguments
 
-1. `selector` _(boolean, number, string, Date, Object, Array\<Object\>)_ a naomi selection expression (optional)
+1. `selector` _(boolean, number, string, Date, Object, Array\<Object\>)_ a [selection expression](query.md#selection) (optional)
 2. `options` _(Object)_ query options (optional)
-  * `options.orderby` _(string, Object, Array\<string, Object\>)_ a naomi orderby expression (optional)
-  * `options.limit` _(number)_ maximum number of records to retrieve (optional)
+  * `options.orderby` _(string, Object, Array\<string, Object\>)_ an [orderby expression](query.md#orderby) (optional)
+  * `options.limit` _(number)_ a [limit expression](query.md#limit) (optional)
 3. `callback` _(Function\<Error\>)_ callback function (optional)
 
 ##### Returns
@@ -263,10 +263,10 @@ Updates the designated record(s) in the collection with the supplied payload.
 ##### Arguments
 
 1. `payload` _(Object)_ key-value pairs to set in the designated records (required)
-2. `selector` _(boolean, number, string, Date, Object, Array\<Object\>)_ a naomi selection expression (optional)
+2. `selector` _(boolean, number, string, Date, Object, Array\<Object\>)_ a [selection expression](query.md#selection) (optional)
 3. `options` _(Object)_ query options (optional)
-  * `options.orderby` _(string, Object, Array\<string, Object\>)_ a naomi orderby expression (optional)
-  * `options.limit` _(number)_ maximum number of records to retrieve (optional)
+  * `options.orderby` _(string, Object, Array\<string, Object\>)_ an [orderby expression](query.md#orderby) (optional)
+  * `options.limit` _(number)_ a [limit expression](query.md#limit) (optional)
 4. `callback` _(Function\<Error\, (Object, Array\<Object\>)>)_ callback function (optional)
 
 ##### Returns
