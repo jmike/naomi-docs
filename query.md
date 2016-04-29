@@ -23,9 +23,70 @@ The naomi mongo-like query language.
 * [Limit](#limit)
 * [Offset](#offset)
 
-### <a name="selection" href="#selection">#</a>Selection expression
+### <a name="selection" href="#selection">#</a>Selection
 
-The projection expression limits the fields returned from a query operation by specifying the inclusion of fields or the exclusion of fields.
+The selection expression specifies the records to return in a query operation.
+
+##### Accepted Values
+
+* _Object_ with operators (see [below](#and))
+* Plain values, i.e. _boolean, number, string, Date, Buffer_
+* _Array\<*\>_ an array containing any of the above
+
+Selection expression normally accepts an _Object_ containing selection operators as described [below](#and).
+
+Nevertheless, selection expressions may also specify a plain value e.g. 
+
+```javascript
+var selection = \<value\>; // i.e. boolean, number, string, Date, Buffer
+```
+
+The above would be interpreted as follows:
+
+```javascript
+{ $id: { $eq: \<value\> } }
+```
+
+Arrays are also accepted, e.g.
+
+```javascript
+var selection = [{ firstname: { $ne: 'Jack' } }, 10];
+```
+
+The above would be interpreted as follows:
+
+```javascript
+{
+  $or: [
+    { firstname: { $ne: 'Jack' } },
+    { $id: { $eq: 10 } },
+  ]
+}
+```
+
+##### Example with plain value
+
+```javascript
+var selection = 14;
+```
+
+Given a collection with `id` primary key, the above would be the rough equivalent of:
+
+```sql
+id = 14
+```
+
+##### Example with array
+
+```javascript
+var selection = [1, 2, { firstname: { $eq: 'Jack' } }];
+```
+
+Given a collection with `id` primary key, the above would be the rough equivalent of:
+
+```sql
+id = 1 OR id = 2 OR firstname = 'Jack'
+```
 
 ### <a name="and" href="#and">$</a>and
 
@@ -347,7 +408,7 @@ id != 15
 
 ### <a name="projection" href="#projection">#</a>Projection
 
-The projection expression limits the keys returned from a query operation by specifying the inclusion of fields or the exclusion of fields.
+The projection expression limits the keys returned from a query operation by specifying inclusion and exclusion of fields.
 
 ##### Accepted Values
 
