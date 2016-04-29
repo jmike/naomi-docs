@@ -33,9 +33,11 @@ The selection expression specifies the records to return in a query operation.
 * Plain values, i.e. _boolean, number, string, Date, Buffer_
 * _Array\<*\>_ an array containing any of the above
 
-Selection expression normally accepts an _Object_ containing selection operators as described [below](#and).
+##### Notes
 
-Nevertheless, selection expressions may also specify a plain value e.g. 
+A selection expression normally accepts an _Object_ containing selection operators as described [below](#and).
+
+Nevertheless, selection expressions may also specify plain values, e.g. 
 
 ```javascript
 var selection = \<value\>; // i.e. boolean, number, string, Date, Buffer
