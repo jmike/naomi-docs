@@ -17,7 +17,7 @@ $ npm install naomi
 
 #### Requirements
 
-* Node.js 0.12+
+* Node.js v.4+
 
 #### Connectors currently available
 
@@ -162,8 +162,8 @@ With Naomi you have the freedom to create the database using a tool of your choi
 
 This project would not be without the extraordinary work of:
 
-* Nicolas Morel (https://github.com/hapijs/joi)
 * Petka Antonov (https://github.com/petkaantonov/bluebird)
+* Nicolas Morel (https://github.com/hapijs/joi)
 * Felix Geisendörfer (https://github.com/felixge/node-mysql)
 
 ## Contribute
