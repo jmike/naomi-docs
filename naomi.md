@@ -26,6 +26,7 @@ var db = naomi.create('mysql', {
 * [Methods](#methods)
   * [register(identifier, engine)](#register)
   * [create(identifier, [connectionProperties])](#create)
+  * [database(identifier, [connectionProperties])](#database)
 
 ## Methods
 
@@ -90,3 +91,7 @@ var db = naomi.create('mysql', {
   database: process.env.MYSQL_DATABASE
 });
 ```
+
+### <a name="database" href="database">#</a>database(identifier, [connectionProperties]) -> [Database](database.md)
+
+Alias of [Database#create()](database.md#create).
