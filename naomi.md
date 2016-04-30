@@ -94,4 +94,4 @@ var db = naomi.create('mysql', {
 
 ### <a name="database" href="database">#</a>database(identifier, [connectionProperties]) -> [Database](database.md)
 
-Alias of [Database#create()](database.md#create).
+Alias of [naomi#create()](#create).
