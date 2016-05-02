@@ -129,8 +129,7 @@ The Collection class exposes the following methods:
 5. [remove()](collection.md#remove) - removes records from the collection;
 6. [insert()](collection.md#insert) - inserts record(s) to the collection;
 7. [upsert()](collection.md#upsert) - upserts record(s) to the collection;
-8. [upsert()](collection.md#upsert) - upserts record(s) to the collection;
-9. [update()](https://github.com/jmike/naomi/blob/master/docs/table.md#set) - updates record(s) in the collection with the supplied payload.
+8. [update()](collection.md#update) - updates record(s) in the collection with the supplied payload.
 
 Additional collection methods may exist depending on the database connector.
 
